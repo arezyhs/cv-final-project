@@ -1,0 +1,19 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Downloaded data and generated experiment artifacts
+data/raw/
+data/interim/
+data/processed/
+models/*.joblib
+models/*.pkl
+outputs/
+reports/figures/
+
+# Jupyter and OS files
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db

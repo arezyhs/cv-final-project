@@ -1,0 +1,41 @@
+# Baseline recommended for Team 2-2. Change only after recording the reason.
+project:
+  name: "Selective Search + HOG + Linear SVM"
+  team: "2-2"
+
+dataset:
+  raw_root: "data/raw/bdd100k"
+  train_images: "images/100k/train"
+  val_images: "images/100k/val"
+  train_labels: "labels/bdd100k_labels_images_train.json"
+  val_labels: "labels/bdd100k_labels_images_val.json"
+  classes: ["car"]
+  train_image_limit: 600
+  val_image_limit: 150
+  random_seed: 42
+  min_box_width: 32
+  min_box_height: 32
+
+features:
+  resize_width: 96
+  resize_height: 96
+  hog_orientations: 9
+  hog_pixels_per_cell: [8, 8]
+  hog_cells_per_block: [2, 2]
+
+training:
+  positives_per_image: 3
+  initial_negative_proposals_per_image: 8
+  hard_negative_proposals_per_image: 5
+  negative_iou_max: 0.2
+  positive_iou_min: 0.5
+  svm_c: 0.01
+  svm_max_iter: 10000
+
+inference:
+  selective_search_mode: "fast"
+  max_proposals: 600
+  min_proposal_width: 32
+  min_proposal_height: 32
+  score_threshold: 0.0
+  nms_iou_threshold: 0.4
